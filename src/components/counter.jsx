@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Couter extends Component {
     state = {
-        count: 0,
+        value: this.props.value,
         tags: ['tag1', 'tag2', 'tag3']
     };
 
@@ -11,11 +11,6 @@ class Couter extends Component {
         return <ul> {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
     }
 
-    handleClick = (product) => {
-        console.log(product);
-        this.setState({count: this.state.count+1});
-        console.log('Clicked!', this.state.count);
-    }
 
     render() { 
         return(
@@ -27,18 +22,19 @@ class Couter extends Component {
                     className="btn btn-secondary btn-sm">
                 Test
                 </button>
+                <button onClick={this.props.onDelete} className="btn btn-danger btn-sm m-2">Delete</button>
             </div>
         );
     }
 
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += this.state.count === 0 ? "warning" : "primary";
+        classes += this.state.value === 0 ? "warning" : "primary";
         return classes;
     }
 
     formatCount(){
-        const { count } = this.state;
+        const { value: count } = this.state;
         return count === 0 ? 'Zero' : count;
     }
 }
