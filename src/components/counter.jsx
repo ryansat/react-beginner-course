@@ -20,12 +20,12 @@ class Counter extends Component {
                 <button 
                     onClick={() => onIncrement(counter)} 
                     className="btn btn-secondary btn-sm">
-                Add
+                    Add
                 </button>
                 <button 
                     onClick={() => onDecrement(counter)} 
                     className="btn btn-secondary btn-sm m-2">
-                Remove
+                    Remove
                 </button>
                 <button onClick={() => onDelete(counter.id)} 
                 className="btn btn-danger btn-sm m-2"
