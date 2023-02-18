@@ -4,6 +4,7 @@ class Navbar extends Component {
         return (
             <nav className="navbar navbar-light bg-light">
                 <a className="navbar-brand" href="#">Navbar</a>
+                <h1>{this.props.totalCounters}</h1>
             </nav>
         );
     }
