@@ -5,11 +5,15 @@ import React, { Component } from 'react';
 import Movies from './components/movies';
 import Counters from './components/counters';
 import Navbar from './components/navbar';
+import { Route, Switch } from 'react-router-dom';
+import Product from './components/products';  
+import Posts from './components/posts';  
+import Dashboard from './components/admin/dashboard';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
-
+import Home from './components/home';
 library.add(fas, far)
 
 class App extends Component{
@@ -54,17 +58,17 @@ class App extends Component{
     return (
         <React.Fragment>
           <Navbar totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
-          <main className="container">
-            {/* <Counters 
-              counters={this.state.counters}
-              onReset={this.handleReset}
-              onDelete={this.handleDelete}
-              onIncrement={this.handleIncrement}
-              onDecrement={this.handleDecrement}
-            /> */}
-            <Movies/>
+          <div className='content'>
+            <Switch>
 
-          </main>
+              <Route path="/Counter" component={Counters}/>
+              <Route path="/Movies" component={Movies}/>
+              <Route path="/Posts" component={Posts}/>
+              <Route path="/Products" component={Product}/>
+              <Route path="/Admin" component={Dashboard}/>
+              <Route path="/" component={Home}/>
+            </Switch>
+          </div>
         </React.Fragment>
     );
   }
