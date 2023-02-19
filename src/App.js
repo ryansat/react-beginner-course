@@ -2,9 +2,15 @@
 import './App.css';
 import React, { Component } from 'react';
 // import counters from './components/counters'
-// import Movies from './components/movies';
+import Movies from './components/movies';
 import Counters from './components/counters';
 import Navbar from './components/navbar';
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+
+library.add(fas, far)
 
 class App extends Component{
   state = { 
@@ -56,6 +62,8 @@ class App extends Component{
               onIncrement={this.handleIncrement}
               onDecrement={this.handleDecrement}
             />
+            <Movies/>
+
           </main>
         </React.Fragment>
     );
